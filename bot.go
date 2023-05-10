@@ -62,9 +62,9 @@ var (
 	// BotAPI - ссылка на стартовую ссылку телеграмм апи для ботов.
 	BotAPI = "https://api.telegram.org/bot"
 	// BotToken - токен от бота для тестирования напрямую.
-	BotToken = "6118030405:AAEdosL5xIaJOp0lqJVej0ZF010SQ5nEFF8" // чтобы тесты проходили нужно закомментить в тестах `WebhookURL` и `BotToken` и запустить ngrock словно для своего пользования
+	BotToken = "" // чтобы тесты проходили нужно закомментить в тестах `WebhookURL` и `BotToken` и запустить ngrock словно для своего пользования
 	// WebhookURL - созданный в ngrok адресс для тестирования напрямую.
-	WebhookURL    = "https://280c-46-138-171-228.ngrok-free.app" // ngrok http 8081
+	WebhookURL    = "" // ngrok http 8081
 	defaultPort   = ":8081"
 	updateChannel chan Update
 
