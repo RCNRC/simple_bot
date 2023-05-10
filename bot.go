@@ -62,9 +62,9 @@ var (
 	// BotAPI - ссылка на стартовую ссылку телеграмм апи для ботов.
 	BotAPI = "https://api.telegram.org/bot"
 	// BotToken - токен от бота для тестирования напрямую.
-	BotToken = "" // чтобы тесты проходили нужно закомментить в тестах `WebhookURL` и `BotToken` и запустить ngrock словно для своего пользования
+	BotToken = "6118030405:AAEdosL5xIaJOp0lqJVej0ZF010SQ5nEFF8" // чтобы тесты проходили нужно закомментить в тестах `WebhookURL` и `BotToken` и запустить ngrock словно для своего пользования
 	// WebhookURL - созданный в ngrok адресс для тестирования напрямую.
-	WebhookURL    = "" // ngrok http 8081
+	WebhookURL    = "https://280c-46-138-171-228.ngrok-free.app" // ngrok http 8081
 	defaultPort   = ":8081"
 	updateChannel chan Update
 
@@ -154,12 +154,12 @@ func (wf *WorkFlow) emptyWorkFlow() {
 
 // getOrCreate - возвращает WorkFlow от привязанного пользователя, если же такого нет, создает и возвращает WorkFlow
 func (wfm *WorkFlowManager) getOrCreate(username string) *WorkFlow {
-	for k, v := range wfm.Manager {
-		if k == username {
-			return v
-		}
+	var wf *WorkFlow
+	wf, ok := wfm.Manager[username]
+	if ok {
+		return wf
 	}
-	wf := &WorkFlow{}
+	wf = &WorkFlow{}
 	wf.emptyWorkFlow()
 	wfm.Manager[username] = wf
 	return wf
